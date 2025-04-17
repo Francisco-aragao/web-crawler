@@ -6,4 +6,4 @@ class DebugOutput:
         self.timestamp : int = timestamp # unix time
 
     def __str__(self):
-        return f"URL: {self.url}\nTitle: {self.title}\nText: {' '.join(self.text.split()[:20])}\nTimestamp: {self.timestamp}\n"
+        return "{" + f" \"URL\": \"{self.url}\",\n\"Title\": \"{self.title}\",\n\"Text\": \"{' '.join(self.text.split()[:20])},\"\n\"Timestamp\": \"{self.timestamp}\"" + "}"
