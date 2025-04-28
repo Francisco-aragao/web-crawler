@@ -3,7 +3,7 @@ from utils.read_file import read_seeds_file
 from crawler import Crawler
 import json
 
-MAX_WORKERS = 15
+MAX_WORKERS = 30 # Number of threads to use for crawling
 
 def get_initial_arguments():
     parser = argparse.ArgumentParser(description="""
@@ -37,9 +37,9 @@ def main():
 
     crawler.init(MAX_WORKERS)
 
-    if args.store_results:
+    if args.store_results: # at final, store the results if the flag is set
         with open('visited_urls.json', 'w') as f:
-            json.dump(list(crawler.visited_urls), f, indent=4)
+            json.dump(list(crawler.visited_urls_per_domain), f, indent=4)
         
         with open('domain_count.json', 'w') as f:
             json.dump(crawler.domain_count, f, indent=4)
@@ -50,7 +50,7 @@ def main():
         with open(f'time_per_block_THREADS:{MAX_WORKERS}.json', 'w') as f:
             json.dump(list(crawler.time_per_block), f, indent=4)
 
-        print("Length of visited URLs:", len(crawler.visited_urls))
+        print("Length of visited URLs:", len(crawler.visited_urls_per_domain))
     
 
 if __name__ == "__main__":

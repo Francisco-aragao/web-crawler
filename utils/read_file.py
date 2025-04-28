@@ -1,5 +1,8 @@
 
 def read_seeds_file(seeds_file: str):
+    """
+        This function is just to read the seeds initial file and return the list of seeds.
+    """
     try:
         with open(seeds_file, 'r') as f:
             seeds = [line.strip() for line in f.readlines()]

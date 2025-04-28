@@ -1,4 +1,9 @@
 class DebugOutput:
+
+    """
+        This class is just to help with debugging. It is used to print the crawl output in a readable format.
+    """
+    
     def __init__(self, url, title, text, timestamp):
         self.url : str = url
         self.title : str = title 

@@ -1,4 +1,5 @@
 env_py
 __pycache__
-.corpus
 .vscode
+corpus*
+ENTREGA
